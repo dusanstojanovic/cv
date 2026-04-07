@@ -46,8 +46,8 @@
 	--c-grey-700: #3e4751;
 	--c-grey-800: #363e45;
 	--c-grey-900: #25292d;
-	--c-link: var(--c-grey-400);
-	--c-link-hover: var(--c-grey-900);
+	--c-link: var(--c-grey-900);
+	--c-link-hover: #000;
 	--z-everest: 100;
 	--z-alps: 50;
 	--z-hill: 10;
@@ -68,6 +68,23 @@ html {
 }
 body {
 	margin: 0;
+}
+.u-skip-link {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	padding: 10px 14px;
+	background: #fff;
+	color: #000;
+	border: 2px solid #000;
+	border-radius: 6px;
+	z-index: var(--z-everest);
+	transform: translateY(-200%);
+	transition: transform var(--base-transition-time) var(--base-timing-functon);
+}
+.u-skip-link:focus,
+.u-skip-link:focus-visible {
+	transform: translateY(0);
 }
 main {
 	display: block;
@@ -133,7 +150,14 @@ html {
 	padding: 0;
 }
 code {
-	font-family: Monaco, Consolas, Bitstream Vera Sans Mono, Andale Mono, DejaVu Sans Mono, Lucida Console, monospace;
+	font-family:
+		Monaco,
+		Consolas,
+		Bitstream Vera Sans Mono,
+		Andale Mono,
+		DejaVu Sans Mono,
+		Lucida Console,
+		monospace;
 	font-size: 0.9em;
 }
 a {
@@ -201,7 +225,9 @@ p {
 }
 a {
 	color: var(--c-link);
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
 	word-break: break-all;
 }
 a * {
@@ -210,6 +236,7 @@ a * {
 a:active,
 a:hover {
 	color: var(--c-link-hover);
+	text-decoration: none;
 }
 a:not([class]) {
 	-webkit-text-decoration-skip: ink;
@@ -365,7 +392,7 @@ section ul + h3 {
 	margin-top: 1.6rem;
 }
 section small {
-	color: var(--c-grey-400);
+	color: var(--c-grey-900);
 	font-size: 0.875rem;
 }
 section ul {
@@ -393,7 +420,7 @@ section ul li + li {
 	gap: 0;
 }
 .c-skills li span:last-child {
-	color: var(--c-link, #ccc);
+	color: var(--c-link, #000);
 }
 .c-skills li + li {
 	margin-top: 0.6rem;
